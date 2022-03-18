@@ -19,3 +19,10 @@ function solution(str){
   //TIP: methods can be stacked
   //  return str.split('').reverse().join('');
 }
+
+//2022-03-18
+class SmallestIntegerFinder {
+  findSmallestInt(args) {
+    return Math.min(...args)
+  }
+}
