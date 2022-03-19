@@ -26,3 +26,9 @@ class SmallestIntegerFinder {
     return Math.min(...args)
   }
 }
+
+//2022-03-19
+function century(year) {
+  for (i = 0; year/100 > i; i++) {};
+  return i;
+}
