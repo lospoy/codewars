@@ -32,3 +32,18 @@ function century(year) {
   for (i = 0; year/100 > i; i++) {};
   return i;
 }
+
+//2022-03-20
+//This solution was too slow and gave an Execution Timed Out error
+function oddCount(n) {
+  let x = 0;
+  for (let i = 0; i < n; i++) {
+  if (i % 2 !== 0) {
+    x++;
+  }
+}
+return x;
+}
+
+//efficient solution below
+//const oddCount = n => Math.floor(n/2) ;
