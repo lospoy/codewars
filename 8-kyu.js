@@ -45,5 +45,13 @@ function oddCount(n) {
 return x;
 }
 
-//efficient solution below
-//const oddCount = n => Math.floor(n/2) ;
+// efficient solution below
+// const oddCount = n => Math.floor(n/2) ;
+
+//2022-03-25
+let even_or_odd = number => number % 2 === 0 ? "Even" : "Odd"
+
+// best practice below
+// function even_or_odd(number) {
+// return number % 2 ? "Odd" : "Even"
+// }
