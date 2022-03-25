@@ -55,3 +55,8 @@ let even_or_odd = number => number % 2 === 0 ? "Even" : "Odd"
 // function even_or_odd(number) {
 // return number % 2 ? "Odd" : "Even"
 // }
+
+//2022-03-25
+function numberToString(num) {
+  return String(num)
+}
