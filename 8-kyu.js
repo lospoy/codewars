@@ -60,3 +60,8 @@ let even_or_odd = number => number % 2 === 0 ? "Even" : "Odd"
 function numberToString(num) {
   return String(num)
 }
+
+//2022-03-25
+function reverseWords(str) {
+  return str.split(' ').reverse().join(' ')
+}
