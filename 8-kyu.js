@@ -68,3 +68,6 @@ function reverseWords(str) {
 
 //2022-03-26
 let boolToWord = bool => bool ? 'Yes' : 'No';
+
+//2022-03-26
+let maps = x => x.map( a => a*2);
