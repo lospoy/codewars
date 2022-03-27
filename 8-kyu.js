@@ -71,3 +71,8 @@ let boolToWord = bool => bool ? 'Yes' : 'No';
 
 //2022-03-26
 let maps = x => x.map( a => a*2);
+
+//2022-03-27
+function stringToArray(string){
+  return string.split(' ');
+}
