@@ -76,3 +76,12 @@ let maps = x => x.map( a => a*2);
 function stringToArray(string){
   return string.split(' ');
 }
+
+//2022-03-27
+function countSheep(num) {
+  let result = '';
+  for (let i = 1; i <= num; i++) {
+  result += `${i} sheep...`
+  }
+  return result 
+}
