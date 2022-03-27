@@ -65,3 +65,6 @@ function numberToString(num) {
 function reverseWords(str) {
   return str.split(' ').reverse().join(' ')
 }
+
+//2022-03-26
+let boolToWord = bool => bool ? 'Yes' : 'No';
