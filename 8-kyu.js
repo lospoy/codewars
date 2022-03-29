@@ -90,3 +90,6 @@ function countSheep(num) {
 function positiveSum(arr) {
   return arr.reduce((a,b)=> a + (b > 0 ? b : 0),0);
 }
+
+//2022-03-29
+let makeNegative = num => num > 0 ? -num : num;
