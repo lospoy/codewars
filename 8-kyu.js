@@ -93,3 +93,12 @@ function positiveSum(arr) {
 
 //2022-03-29
 let makeNegative = num => num > 0 ? -num : num;
+
+//2022-03-30
+function repeatStr (n, s) {
+  let result = '';
+  for(let i = 0; i < n; i++) {
+    result += s;
+  }
+  return result;
+}
