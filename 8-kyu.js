@@ -102,3 +102,12 @@ function repeatStr (n, s) {
   }
   return result;
 }
+
+//2022-03-31
+function summation (num) {
+  let result = 0
+  for (i = 1; i <= num; i++){
+    result+=i
+  }
+  return result
+}
