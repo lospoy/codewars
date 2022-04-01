@@ -116,3 +116,8 @@ function summation (num) {
 function removeChar(str) {
   return str.slice(1, -1);
 }
+
+//2022-04-01
+function noSpace(x){
+  return x.replace(/ /g,'')
+}
