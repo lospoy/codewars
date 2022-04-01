@@ -111,3 +111,8 @@ function summation (num) {
   }
   return result
 }
+
+//2022-04-01
+function removeChar(str) {
+  return str.slice(1, -1);
+}
