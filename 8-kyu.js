@@ -125,4 +125,17 @@ function noSpace(x){
 //2022-04-02
 function litres(time) {
   return Math.floor(time/2);
+
+  
+//2022-04-02
+function basicOp(operation, value1, value2) {
+  if (operation === '+') {
+    return value1 + value2;
+  } else if (operation === '-') {
+    return value1 - value2;
+  } else if (operation === '*') {
+    return value1 * value2;
+  } else {
+    return value1 / value2;
+  }
 }
