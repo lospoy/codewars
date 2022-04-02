@@ -139,3 +139,8 @@ function basicOp(operation, value1, value2) {
     return value1 / value2;
   }
 }
+
+//2022-04-02
+function greet(name){
+  return `Hello, ${name} how are you doing today?`;
+}
