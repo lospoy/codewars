@@ -121,3 +121,8 @@ function removeChar(str) {
 function noSpace(x){
   return x.replace(/ /g,'')
 }
+
+//2022-04-02
+function litres(time) {
+  return Math.floor(time/2);
+}
