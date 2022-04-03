@@ -125,7 +125,7 @@ function noSpace(x){
 //2022-04-02
 function litres(time) {
   return Math.floor(time/2);
-
+}
   
 //2022-04-02
 function basicOp(operation, value1, value2) {
@@ -143,4 +143,8 @@ function basicOp(operation, value1, value2) {
 //2022-04-02
 function greet(name){
   return `Hello, ${name} how are you doing today?`;
+}
+
+function digitize(n) {
+  return n.toString().split("").reverse().map(Number);
 }
