@@ -145,6 +145,14 @@ function greet(name){
   return `Hello, ${name} how are you doing today?`;
 }
 
+//2022-04-02
 function digitize(n) {
   return n.toString().split("").reverse().map(Number);
+}
+
+//2022-04-04
+function greet(name){  
+  if(name === "Johnny")
+    return "Hello, my love!";
+  return "Hello, " + name + "!";
 }
