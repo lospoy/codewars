@@ -156,3 +156,8 @@ function greet(name){
     return "Hello, my love!";
   return "Hello, " + name + "!";
 }
+
+//2022-04-05
+function squareSum(numbers) {
+  return numbers.reduce((x, i) => i*i + x, 0)
+}
