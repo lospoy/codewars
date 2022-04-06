@@ -161,3 +161,16 @@ function greet(name){
 function squareSum(numbers) {
   return numbers.reduce((x, i) => i*i + x, 0)
 }
+
+//2022-04-06
+function countSheeps(arrayOfSheep) {
+  let sum = 0
+  for (let key in arrayOfSheep) {
+    if (typeof arrayOfSheep[key] == 'boolean') {
+      if (arrayOfSheep[key] === true) {
+        sum++
+      }
+    }
+  }
+  return sum
+}
