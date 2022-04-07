@@ -9,3 +9,9 @@ function getCount(str) {
   }
   return vowelsCount;
 }
+
+//2022-04-07
+function disemvowel(str) {
+  return str.replace(/[aeiouAEIOU]/g, '');
+}
+//'i' means case-sensitive regex replacement so -> /[aeiou]/gi
