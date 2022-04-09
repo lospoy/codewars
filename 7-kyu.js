@@ -20,3 +20,11 @@ function disemvowel(str) {
 function squareDigits(num){
   return Number(num.toString().split('').map(Number).map((x) => x * x).join(""));
 }
+
+//2022-04-09
+function highAndLow(numbers){
+  let array = numbers.split(' ').map(Number)
+  let max = array.reduce((a, b) => {return Math.max(a, b)})
+  let min = array.reduce((a, b) => {return Math.min(a, b)})
+  return `${max} ${min}`
+}
