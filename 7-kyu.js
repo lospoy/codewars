@@ -15,3 +15,8 @@ function disemvowel(str) {
   return str.replace(/[aeiouAEIOU]/g, '');
 }
 //'i' means case-sensitive regex replacement so -> /[aeiou]/gi
+
+//2022-04-08
+function squareDigits(num){
+  return Number(num.toString().split('').map(Number).map((x) => x * x).join(""));
+}
