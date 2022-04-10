@@ -28,3 +28,8 @@ function highAndLow(numbers){
   let min = array.reduce((a, b) => {return Math.min(a, b)})
   return `${max} ${min}`
 }
+
+//2022-04-10
+function isSquare(n) {
+  return Math.sqrt(n) % 1 === 0;
+}
