@@ -33,3 +33,17 @@ function highAndLow(numbers){
 function isSquare(n) {
   return Math.sqrt(n) % 1 === 0;
 }
+
+//2022-04-11
+function getMiddle(s) {
+  let sol = ''
+  let arr = s.split('')
+  let midIndex = Math.floor(s.length/2)
+  if (s.length % 2 === 1) {
+    sol = arr[midIndex]
+  } else {
+    let midIndex2 = (s.length/2)-1
+    sol = arr[midIndex2]+arr[midIndex]
+  }
+  return sol
+}
