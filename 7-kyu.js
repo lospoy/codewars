@@ -52,3 +52,13 @@ function getMiddle(s) {
 function descendingOrder(n){
   return Number(n.toString().split('').map(Number).sort((a, b) => b - a).join(''));
 }
+
+//2022-04-13
+function filter_list(l) {
+  let filteredList = []
+  for (let key in l) {
+    if (typeof l[key] == 'number') {
+      filteredList.push(l[key])}
+    }
+  return filteredList
+}
