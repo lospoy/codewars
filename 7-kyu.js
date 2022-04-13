@@ -47,3 +47,8 @@ function getMiddle(s) {
   }
   return sol
 }
+
+//2022-04-12
+function descendingOrder(n){
+  return Number(n.toString().split('').map(Number).sort((a, b) => b - a).join(''));
+}
