@@ -76,3 +76,8 @@ function findShort(s){
   let arr = s.split(" ").map(x => x.length).sort((a, b) => b-a).reverse()
   return arr[0]
 }
+
+// 2022-04-15
+String.prototype.toJadenCase = function () {
+  return this.split(" ").map(x => x[0].toUpperCase() + x.slice(1)).join(" ");
+};
