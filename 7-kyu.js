@@ -70,3 +70,9 @@ function accum(s) {
     .map((x, i) => x.toUpperCase() + x.toLowerCase().repeat(i))
     .join('-');
 }
+
+// 2022-04-15
+function findShort(s){
+  let arr = s.split(" ").map(x => x.length).sort((a, b) => b-a).reverse()
+  return arr[0]
+}
