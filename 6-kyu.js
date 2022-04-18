@@ -47,3 +47,12 @@ function createPhoneNumber(numbers){
 function createPhoneNumber(numbers){
   return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
 }
+
+//2022-04-18
+function likes(names) {
+  if(names.length === 0) {return 'no one likes this'}
+  else if(names.length === 1) {return names.reduce((p, c) => p.replace('$a',c), '$a likes this')}
+  else if(names.length === 2) {return names.reduce((p, c) => p.replace('$a',c), '$a and $a like this')}
+  else if(names.length === 3) {return names.reduce((p, c) => p.replace('$a',c), '$a, $a and $a like this')}
+  else {return names.reduce((p, c) => p.replace('$a',c), `$a, $a and ${names.length-2} others like this`)}
+}
