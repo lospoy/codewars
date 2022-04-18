@@ -56,3 +56,14 @@ function likes(names) {
   else if(names.length === 3) {return names.reduce((p, c) => p.replace('$a',c), '$a, $a and $a like this')}
   else {return names.reduce((p, c) => p.replace('$a',c), `$a, $a and ${names.length-2} others like this`)}
 }
+//2022-04-18 best practice
+function likes(names) {
+  names = names || [];
+  switch(names.length){
+    case 0: return 'no one likes this'; break;
+    case 1: return names[0] + ' likes this'; break;
+    case 2: return names[0] + ' and ' + names[1] + ' like this'; break;
+    case 3: return names[0] + ', ' + names[1] + ' and ' + names[2] + ' like this'; break;
+    default: return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
+  }
+}
