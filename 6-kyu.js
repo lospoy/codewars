@@ -67,3 +67,31 @@ function likes(names) {
     default: return names[0] + ', ' + names[1] + ' and ' + (names.length - 2) + ' others like this';
   }
 }
+
+//2022-04-19
+function findOdd(A) {
+  let countNumObj = A.reduce((key, value) => {
+    if(!key[value]) {
+      key[value] = 0
+    }
+      key[value]++
+    return key
+  }, {})
+
+  for (let value in countNumObj) {
+    if (countNumObj[value] % 2 === 1) {
+      return Number(value)
+    }
+  }
+}
+//2022-04-19 cleaner way of -> !key[value] then create it
+function findOdd(A) {
+  let obj = {};
+  A.forEach(function(el){
+    obj[el] ? obj[el]++ : obj[el] = 1; //is there a obj[el]? then ++, otherwise =1
+  });
+  
+  for(prop in obj) {
+    if(obj[prop] % 2 !== 0) return Number(prop); //one line implicit return
+  }
+}
