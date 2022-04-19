@@ -79,7 +79,7 @@ function findOdd(A) {
   }, {})
 
   for (let value in countNumObj) {
-    if (countNumObj[value] % 2 === 1) {
+    if (countNumObj[value] % 2 === 1) { // ===1 not necessary
       return Number(value)
     }
   }
@@ -94,4 +94,8 @@ function findOdd(A) {
   for(prop in obj) {
     if(obj[prop] % 2 !== 0) return Number(prop); //one line implicit return
   }
+}
+//2022-04-19
+function findOdd(arr) {
+  return arr.find((item, index) => arr.filter(el => el == item).length % 2)
 }
