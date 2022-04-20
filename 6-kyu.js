@@ -99,3 +99,18 @@ function findOdd(A) {
 function findOdd(arr) {
   return arr.find((item, index) => arr.filter(el => el == item).length % 2)
 }
+
+//2022-04-20
+//all your arrays are belong to us
+function digital_root(n) {
+  let acc = 0
+  while(n.toString().split('').length !== 1) {
+      acc = n.toString().split('').map(x => Number(x)).reduce((a, b) => a+b)
+      n = acc
+  }
+  return n
+}
+//2022-04-20 what makes sense
+function digital_root(n) {
+  return (n - 1) % 9 + 1;
+}
