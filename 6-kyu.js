@@ -114,3 +114,17 @@ function digital_root(n) {
 function digital_root(n) {
   return (n - 1) % 9 + 1;
 }
+
+//2022-04-21
+function spinWords(string){
+  return string
+                .split(' ')
+                .map(x => {
+                  if (x.length > 4) {
+                    return x.split('').reverse().join('')
+                  } else {
+                    return x
+                  }
+                })
+                .join(' ')
+}
