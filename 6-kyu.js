@@ -128,3 +128,8 @@ function spinWords(string){
                 })
                 .join(' ')
 }
+
+//2022-04-22
+function arrayDiff(a, b) {
+  return a.filter(val => !b.includes(val)); //best practice: use 'e' as value variable name
+}
