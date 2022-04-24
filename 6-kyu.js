@@ -133,3 +133,10 @@ function spinWords(string){
 function arrayDiff(a, b) {
   return a.filter(val => !b.includes(val)); //best practice: use 'e' as value variable name
 }
+
+//2022-04-23
+function findOutlier(integers) {
+  let even = integers.filter(x => x % 2 === 0)
+  let odd = integers.filter(x => x % 2 !== 0)
+  return even.length === 1 ? even.shift() : odd.shift() // people used even[0] instead of even.shift()
+}
