@@ -81,3 +81,24 @@ function findShort(s){
 String.prototype.toJadenCase = function () {
   return this.split(" ").map(x => x[0].toUpperCase() + x.slice(1)).join(" ");
 };
+
+//2022-04-26
+function XO(str) {
+  let xCounter = null
+  let oCounter = null
+  let arr = str.split('')
+  let sol = true
+
+  for (let char in arr) {
+  if(arr[char].toLowerCase() === 'x'){xCounter++}
+  else if(arr[char].toLowerCase() === 'o'){oCounter++}
+  sol = xCounter == oCounter ? true : false
+  }
+  return sol
+}
+//2022-04-26 regex to the rescue
+function XO(str) {
+  let x = str.match(/x/gi);
+  let o = str.match(/o/gi);
+  return (x && x.length) === (o && o.length);
+}
