@@ -96,9 +96,23 @@ function XO(str) {
   }
   return sol
 }
-//2022-04-26 regex to the rescue
+//2022-04-26 regex to the rescue <== DO NOT USE FOR NOW, AVOID REGEX
 function XO(str) {
   let x = str.match(/x/gi);
   let o = str.match(/o/gi);
   return (x && x.length) === (o && o.length);
+}
+
+//2022-05-02
+function maskify(cc) {
+  let sol = ''
+  let arrChar = cc.split('')
+  let lastFourChar = []
+  for (i = 4; i >= 0; i--) {
+    lastFourChar.push(arrChar[arrChar.length - i])
+  }
+  for (i = 0; i < cc.length - 4; i++) {
+    sol += '#'
+  }
+    return sol + lastFourChar.join('')
 }
