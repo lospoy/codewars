@@ -116,3 +116,20 @@ function maskify(cc) {
   }
     return sol + lastFourChar.join('')
 }
+
+//2022-05-04
+function DNAStrand(dna){
+  let str = "";
+  for(var i = 0 ; i < dna.length ; i++){
+    if(dna.charAt(i) == "A"){
+      str += "T"
+    }  if(dna.charAt(i) == "T"){
+      str += "A"
+    }  if(dna.charAt(i) == "C"){
+      str += "G"
+    }  if(dna.charAt(i) == "G"){
+      str += "C"
+    } 
+  }
+  return str
+}
