@@ -3,8 +3,8 @@
 
 ## Optimizations
 
-Although I optimize for efficiency and readability in my work, I've been focusing on unorthodox but feasible ways of solving these challenges, in pursuit of exploring new and different thought processes.
+Although I optimize for efficiency and readability in my work, I sometimes try focusing on unorthodox but feasible ways of solving these challenges, in pursuit of exploring new and different thought processes. Other days I just get the thing done.
 
 ## Lessons Learned:
 
-There is a million ways of solving the same thing. Also, simplest doesn't always equal best.
+There is a million ways of reaching the same goal. Also, *simplest* doesn't always equal best.
