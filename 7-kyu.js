@@ -1,3 +1,4 @@
+// 7-kyu
 //2022-04-07
 function getCount(str) {
   const vowels = ["a", "e", "i", "o", "u"];
@@ -10,17 +11,20 @@ function getCount(str) {
   return vowelsCount;
 }
 
+// 7-kyu
 //2022-04-07
 function disemvowel(str) {
   return str.replace(/[aeiouAEIOU]/g, '');
 }
 //'i' means case-sensitive regex replacement so -> /[aeiou]/gi
 
+// 7-kyu
 //2022-04-08
 function squareDigits(num){
   return Number(num.toString().split('').map(Number).map((x) => x * x).join(""));
 }
 
+// 7-kyu
 //2022-04-09
 function highAndLow(numbers){
   let array = numbers.split(' ').map(Number)
@@ -29,11 +33,13 @@ function highAndLow(numbers){
   return `${max} ${min}`
 }
 
+// 7-kyu
 //2022-04-10
 function isSquare(n) {
   return Math.sqrt(n) % 1 === 0;
 }
 
+// 7-kyu
 //2022-04-11
 function getMiddle(s) {
   let sol = ''
@@ -48,11 +54,13 @@ function getMiddle(s) {
   return sol
 }
 
+// 7-kyu
 //2022-04-12
 function descendingOrder(n){
   return Number(n.toString().split('').map(Number).sort((a, b) => b - a).join(''));
 }
 
+// 7-kyu
 //2022-04-13
 function filter_list(l) {
   let filteredList = []
@@ -63,6 +71,7 @@ function filter_list(l) {
   return filteredList
 }
 
+// 7-kyu
 //2022-04-14
 function accum(s) {
   return s
@@ -71,6 +80,7 @@ function accum(s) {
     .join('-');
 }
 
+// 7-kyu
 // 2022-04-15
 function findShort(s){
   let arr = s.split(" ").map(x => x.length).sort((a, b) => b-a).reverse()
@@ -82,6 +92,7 @@ String.prototype.toJadenCase = function () {
   return this.split(" ").map(x => x[0].toUpperCase() + x.slice(1)).join(" ");
 };
 
+// 7-kyu
 //2022-04-26
 function XO(str) {
   let xCounter = null
@@ -103,6 +114,7 @@ function XO(str) {
   return (x && x.length) === (o && o.length);
 }
 
+// 7-kyu
 //2022-05-02
 function maskify(cc) {
   let sol = ''
@@ -117,6 +129,7 @@ function maskify(cc) {
     return sol + lastFourChar.join('')
 }
 
+// 7-kyu
 //2022-05-04
 function DNAStrand(dna){
   let str = "";
@@ -134,6 +147,7 @@ function DNAStrand(dna){
   return str
 }
 
+// 7-kyu
 //2022-05-05
 function isIsogram(str){
   if (typeof str === undefined){
@@ -154,4 +168,15 @@ function isIsogram(str){
     }
   }
   return passing
+}
+
+// 7-kyu
+// Growth of a Population
+// 2022-05-12
+function nbYear(p0, percent, aug, p) {
+    
+  for (let years = 0; p0 < p; years++) {
+    p0 = Math.floor(p0 + p0 * percent / 100 + aug);
+  }
+  return years
 }
