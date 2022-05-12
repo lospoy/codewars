@@ -1,5 +1,5 @@
 # CodeWars Profile Page: <a target="_blank" href="https://www.codewars.com/users/lospoy" >Visit Here</a> 
-![github codewars](https://user-images.githubusercontent.com/36555654/164838017-69e5940f-81e7-4296-9fd0-af1f4bd92b2c.JPG)
+<img style='width:90%' src='https://user-images.githubusercontent.com/36555654/164838017-69e5940f-81e7-4296-9fd0-af1f4bd92b2c.JPG' />
 
 ## Optimizations
 
