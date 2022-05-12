@@ -7,4 +7,4 @@ Although I optimize for efficiency and readability in my work, I sometimes try f
 
 ## Lessons Learned:
 
-There is a million ways of reaching the same goal. Also, *simplest* doesn't always equal best.
+*Simplest* doesn't always equal best.
