@@ -1,3 +1,4 @@
+// ***********************************************************
 // 6-kyu
 //2022-04-16
 function solution(number){
@@ -27,6 +28,7 @@ function solution(number){
   return sum;
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-17
 function createPhoneNumber(arr){
@@ -49,6 +51,7 @@ function createPhoneNumber(numbers){
   return numbers.reduce((p,c) => p.replace('x',c), "(xxx) xxx-xxxx");
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-18
 function likes(names) {
@@ -70,6 +73,7 @@ function likes(names) {
   }
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-19
 function findOdd(A) {
@@ -103,6 +107,7 @@ function findOdd(arr) {
   return arr.find((item, index) => arr.filter(el => el == item).length % 2)
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-20
 function digital_root(n) {
@@ -118,6 +123,7 @@ function digital_root(n) {
   return (n - 1) % 9 + 1;
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-21
 function spinWords(string){
@@ -133,12 +139,14 @@ function spinWords(string){
                 .join(' ')
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-22
 function arrayDiff(a, b) {
   return a.filter(val => !b.includes(val)); //best practice: use 'e' as value variable name
 }
 
+// ***********************************************************
 // 6-kyu
 //2022-04-23
 function findOutlier(integers) {
@@ -147,6 +155,7 @@ function findOutlier(integers) {
   return even.length === 1 ? even.shift() : odd.shift() // people used even[0] instead of even.shift()
 }
 
+// ***********************************************************
 // 6-kyu
 // Counting Duplicates
 // 2022-05-12
@@ -166,3 +175,34 @@ function duplicateCount(text){
     return Object.values(obj).filter((x) => x > 1).length
   }
 } 
+
+// ***********************************************************
+// 6-kyu
+// Duplicate Encoder
+// 2022-05-13
+function duplicateEncode(word){
+  const characters = word
+                .toLowerCase()
+                .split('')
+                
+  const counts = characters.reduce((ct, ltr) => {
+                            if(!ct[ltr]) {ct[ltr] = 0}
+                            ct[ltr]++
+                            return ct
+                            }, {})
+
+  return characters
+            .map(letter => counts[letter] === 1 ? '(' : ')')
+            .join('');
+}
+// .map(element, index, array)
+// passing the array directly into the map function instead of passing a separate array
+function duplicateEncode(word){
+  return word
+    .toLowerCase()
+    .split('')
+    .map( function (el, i, arr) {
+      return arr.indexOf(el) == arr.lastIndexOf(el) ? '(' : ')'
+    })
+    .join('');
+}
