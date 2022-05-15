@@ -180,3 +180,10 @@ function nbYear(p0, percent, aug, p) {
   }
   return years
 }
+
+// 7-kyu
+// Friend or Foe?
+// 2022-05-14
+function friend(friends){
+  return friends.filter(x => x.length == 4);
+}
