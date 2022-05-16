@@ -187,3 +187,19 @@ function nbYear(p0, percent, aug, p) {
 function friend(friends){
   return friends.filter(x => x.length == 4);
 }
+
+// 7-kyu
+// Two to One
+// 2022-05-16
+function longest(s1, s2) {
+  return (s1+s2)
+    .toLowerCase()
+    .split('')
+    .filter((el, i, arr) => {
+      return arr.indexOf(el) == i
+    })
+    .sort((a, b) => a.localeCompare(b))
+    .join('');
+}
+// best practice
+const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
