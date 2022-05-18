@@ -206,3 +206,16 @@ function duplicateEncode(word){
     })
     .join('');
 }
+
+// ***********************************************************
+// 6-kyu
+// Persistent Bugger.
+// 2022-05-18
+function persistence(num) {
+  let times = 0
+  while (num > 9) {
+    num = `${num}`.split('').map(Number).reduce((a, b) => a*b)
+    times++
+  }
+  return times
+}
