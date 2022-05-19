@@ -219,3 +219,11 @@ function persistence(num) {
   }
   return times
 }
+
+// ***********************************************************
+// 6-kyu
+// Replace With Alphabet Position
+// 2022-05-19
+function alphabetPosition(text) {
+  return text.split('').map(x => (parseInt(x, 36) - 9)).filter(x => x > 0).join(' ')
+}
