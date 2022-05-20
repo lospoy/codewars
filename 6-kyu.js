@@ -227,3 +227,12 @@ function persistence(num) {
 function alphabetPosition(text) {
   return text.split('').map(x => (parseInt(x, 36) - 9)).filter(x => x > 0).join(' ')
 }
+
+// ***********************************************************
+// 6-kyu
+// Unique In Order
+// 2022-05-20
+function uniqueInOrder(iterable){
+  typeof iterable == 'string' ? iterable = iterable.split('') : iterable
+  return iterable.filter((x, i, arr) => arr[i] !== arr[i+1])
+}
