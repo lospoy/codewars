@@ -236,3 +236,18 @@ function uniqueInOrder(iterable){
   typeof iterable == 'string' ? iterable = iterable.split('') : iterable
   return iterable.filter((x, i, arr) => arr[i] !== arr[i+1])
 }
+
+// ***********************************************************
+// 6-kyu
+// Convert string to camel case
+// 2022-05-21
+function toCamelCase(str){
+  // solving without regular expressions:
+
+  // checks type of separator and splits accordingly, then assigns the first word, unchanged, to the variable
+  let firstWord =  str.includes('-') ? str.split('-')[0] : str.split('_')[0]
+  // checks type of separator and splits accordingly, then changes the rest of the words to camelCase, joins then, and assigns them to the variable
+  let otherWords = str.includes('-') ? str.split('-').slice(1, str.length, 0).map(a => a[0].toUpperCase() + a.substring(1)).join('') : str.split('_').slice(1, str.length, 0).map(a => a[0].toUpperCase() + a.substring(1)).join('')
+  
+  return firstWord + otherWords
+}
