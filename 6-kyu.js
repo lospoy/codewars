@@ -251,3 +251,28 @@ function toCamelCase(str){
   
   return firstWord + otherWords
 }
+
+// ***********************************************************
+// 6-kyu
+// Your order, please
+// 2022-05-23
+function order(words){
+  // had to resort to RegExp
+  return words.split(' ').sort(function(a, b){
+      return a.match(/\d/) - b.match(/\d/);
+   }).join(' ');
+}
+//without regular expressions
+//tried this one initially but couldn't make it work
+function order(words){
+  var array = words.split(' ');
+  var sortedArray = [];
+  for(i = 0; i <= array.length; i++) {
+    for(j = 0; j < array.length; j++) {
+      if(array[j].indexOf(i) >= 0) {
+        sortedArray.push(array[j]);
+      }
+    }
+  }
+  return sortedArray.join(' ');
+}
