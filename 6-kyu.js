@@ -257,13 +257,12 @@ function toCamelCase(str){
 // Your order, please
 // 2022-05-23
 function order(words){
-  // had to resort to RegExp
+  // with RegExp
   return words.split(' ').sort(function(a, b){
       return a.match(/\d/) - b.match(/\d/);
    }).join(' ');
 }
-//without regular expressions
-//tried this one initially but couldn't make it work
+  //without regular expressions
 function order(words){
   var array = words.split(' ');
   var sortedArray = [];
@@ -276,3 +275,18 @@ function order(words){
   }
   return sortedArray.join(' ');
 }
+
+// ***********************************************************
+// 6-kyu
+// Detect Pangram
+// 2022-05-24
+function isPangram(string){
+  // maps characters to integers, then filters for letters only
+  let filteredStr = string
+                      .split('')
+                      .map(x => (parseInt(x, 36) - 9))
+                      .filter(x => x > 0)
+
+  // creates a set, checks for the size of the alphabet
+  return new Set(filteredStr).size === 26
+} 
