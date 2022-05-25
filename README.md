@@ -1,5 +1,5 @@
 # CodeWars Profile Page: <a target="_blank" href="https://www.codewars.com/users/lospoy" >Visit Here</a> 
-<img style='width:75%' src='https://i.postimg.cc/5tWdvQ6m/Capture.jpg' />
+<img style='width:90%' src='https://i.postimg.cc/5tWdvQ6m/Capture.jpg' />
 
 ## Optimizations
 
