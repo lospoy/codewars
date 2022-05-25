@@ -290,3 +290,31 @@ function isPangram(string){
   // creates a set, checks for the size of the alphabet
   return new Set(filteredStr).size === 26
 } 
+
+// ***********************************************************
+// 6-kyu
+// Take a Ten Minutes Walk
+// 2022-05-25
+function isValidWalk(walk) {
+  //coordinate pairs for movement
+  const n = [1, 0]
+  const s = [-1, 0]
+  const e = [0, 1]
+  const w = [0, -1]
+  const initial = [0, 0]
+  let current = [0, 0]
+  //update (sum) coordinates
+  const sum = (array1, array2) => array1.map((num, idx) => (num + array2[idx]))
+  
+  if(walk.length !== 10) {
+    return false
+  } else {
+  walk.forEach(x => {
+    if(x === 'n') {current = sum(current, n)}
+    else if (x === 's') {current = sum(current, s)}
+    else if (x === 'e') {current = sum(current, e)}
+    else {current = sum(current, w)}
+  })
+  return JSON.stringify(current) === JSON.stringify(initial)
+  }
+}
