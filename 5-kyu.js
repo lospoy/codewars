@@ -37,3 +37,26 @@ var moveZeros = function (arr) {
     ...(arr.filter(n => n === 0))
   ];
 }
+
+// ***********************************************************
+// 5-kyu
+// Human Readable Time
+// 2022-05-29
+function humanReadable(sec) {
+  let hh = Math.floor(sec/3600);
+  sec %= 3600;
+  let mm = Math.floor(sec/60);
+  let ss = sec%60;
+
+  if(hh < 10) {hh = '0'+hh}
+  if(mm < 10) {mm = '0'+mm}
+  if(ss < 10) {ss = '0'+ss}
+
+  return `${hh}:${mm}:${ss}`
+}
+// using Date constructor (only up to 24h)
+function humanReadable(sec) {
+  const time = new Date(null);
+  time.setSeconds(sec)
+  return time.toISOString().substr(11, 8);
+}
