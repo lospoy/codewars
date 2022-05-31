@@ -318,3 +318,21 @@ function isValidWalk(walk) {
   return JSON.stringify(current) === JSON.stringify(initial)
   }
 }
+
+// ***********************************************************
+// 6-kyu
+// Does my number look big in this?
+// 2022-05-31
+function narcissistic(value) {
+  let arr = value.toString().split('')
+  let sol = arr.map(x => x ** arr.length).reduce((a, b) => a+b)
+  return sol === value ? true : false
+}
+// refactored
+function narcissistic(value) {
+  return value.toString()
+              .split('')
+              .map( (x,i,arr) => x ** arr.length)
+              .reduce( (a,b)=> +a + +b) 
+               === value
+}
