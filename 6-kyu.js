@@ -336,3 +336,17 @@ function narcissistic(value) {
               .reduce( (a,b)=> +a + +b) 
                === value
 }
+
+// ***********************************************************
+// 6-kyu
+// Playing with digits
+// 2022-06-01
+function digPow(n, p){
+  let r = n.toString().split('').map((x, i, arr) => Number(x)**(p+i)).reduce((a, b)=> a+b)
+  return r%n === 0 ? r/n : -1
+}
+// best practice
+function digPow(n, p) {
+  var x = String(n).split("").reduce((s, d, i) => s + Math.pow(d, p + i), 0)
+  return x % n ? -1 : x / n
+}
