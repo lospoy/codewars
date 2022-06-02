@@ -350,3 +350,17 @@ function digPow(n, p) {
   var x = String(n).split("").reduce((s, d, i) => s + Math.pow(d, p + i), 0)
   return x % n ? -1 : x / n
 }
+
+// ***********************************************************
+// 6-kyu
+// Find the missing letter
+// 2022-06-02
+function findMissingLetter(array) {
+  let sol = array
+              // converts character to base 36
+              .map(x => parseInt(x, 36))
+              // finds non-contiguous number (in base 36) 
+              .find((x, i, arr) => arr[i]+1 !== arr[i+1]) + 1
+  // checks for case and converts base 36 number back to character         
+  return array[0] === array[0].toUpperCase() ? sol.toString(36).toUpperCase() : sol.toString(36)
+}
