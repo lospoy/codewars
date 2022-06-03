@@ -364,3 +364,21 @@ function findMissingLetter(array) {
   // checks for case and converts base 36 number back to character         
   return array[0] === array[0].toUpperCase() ? sol.toString(36).toUpperCase() : sol.toString(36)
 }
+
+// ***********************************************************
+// 6-kyu
+// Decode the Morse Code
+// 2022-06-03
+const decodeMorse = morseCode => {
+
+  const decodeLetter = letter => MORSE_CODE[letter]
+  const decodeWord = word => word
+                              .split(' ')
+                              .map(decodeLetter)
+                              .join('')
+  return morseCode
+          .trim()
+          .split('   ')
+          .map(decodeWord)
+          .join(' ');
+}
