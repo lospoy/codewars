@@ -382,3 +382,28 @@ const decodeMorse = morseCode => {
           .map(decodeWord)
           .join(' ');
 }
+
+// ***********************************************************
+// 6-kyu
+// Valid Braces
+// 2022-06-06
+function validBraces(braces) {
+  const stack = []
+
+  for (const brace of braces) {
+    if (')]}'.includes(brace)) {
+      if (isMatchedBraces(stack.pop(), brace)) {
+        continue
+      }
+      return false
+    }
+
+    stack.push(brace)
+  }
+
+  return !stack.length
+}
+
+function isMatchedBraces(left, right) {
+  return ['()', '[]', '{}'].some(([l, r]) => l === left && r === right)
+}
