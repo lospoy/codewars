@@ -407,3 +407,18 @@ function validBraces(braces) {
 function isMatchedBraces(left, right) {
   return ['()', '[]', '{}'].some(([l, r]) => l === left && r === right)
 }
+
+// ***********************************************************
+// 6-kyu
+// Find the unique number
+// 2022-06-07
+// arr[arr.map((x, i, arr)=> x-(arr[x])).findIndex(x => x !== 0)]
+// arr.reduce((a, b) => a ^ b)
+// two above seem to achieve result but don't pass the tests
+function findUniq(arr) {
+  return Number(arr.filter(x => arr.indexOf(x) === arr.lastIndexOf(x)));
+}
+// same idea but refactored
+function findUniq(arr) {
+  return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
+}
