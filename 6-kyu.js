@@ -422,3 +422,12 @@ function findUniq(arr) {
 function findUniq(arr) {
   return arr.find(n => arr.indexOf(n) === arr.lastIndexOf(n));
 }
+
+// ***********************************************************
+// 6-kyu
+// Sort the odd
+// 2022-06-08
+function sortArray(array) {
+  const oddNumbersSort = array.filter(x => x % 2).sort((a,b) => a - b)
+  return array.map(x => x % 2 ? oddNumbersSort.shift() : x)
+} 
