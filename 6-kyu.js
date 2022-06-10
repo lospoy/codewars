@@ -431,3 +431,31 @@ function sortArray(array) {
   const oddNumbersSort = array.filter(x => x % 2).sort((a,b) => a - b)
   return array.map(x => x % 2 ? oddNumbersSort.shift() : x)
 } 
+
+// ***********************************************************
+// 6-kyu
+// Highest Scoring Word
+// 2022-06-10
+function high(x){
+  // calculates the score of a word
+  const calcWordScore = word => word.split('').map(x => parseInt(x, 36) - 9).reduce((a, b) => a + b) 
+
+  // returns an object with each word as key and its score as the key's value
+  const scoreCard = x
+                      .split(' ')
+                      .reduce((word, score) => {
+	                        if(!word[score]){
+		                        word[score] = 0
+	                        }
+	                        word[score] = calcWordScore(score)
+	                        return word
+                          }, {})
+
+  // returns highest scoring word from the previous object
+  return Object.keys(scoreCard).reduce((a, b) => scoreCard[a] >= scoreCard[b] ? a : b)
+}
+// best practice
+function high(s){
+  let as = s.split(' ').map(s=>[...s].reduce((a,b)=>a+b.charCodeAt(0)-96,0));
+  return s.split(' ')[as.indexOf(Math.max(...as))];
+}
