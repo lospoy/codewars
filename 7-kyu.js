@@ -203,3 +203,16 @@ function longest(s1, s2) {
 }
 // best practice
 const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
+
+
+// 7-kyu
+// Categorize New Member
+// 2022-06-11
+function openOrSenior(data){
+  let seniorOpen = x => x.map((x, i, arr) => arr[0] > 54 && arr[1] > 7 ? 'Senior' : 'Open')[0]
+  return data.map(x => seniorOpen(x))
+}
+// Destructuring: [age, handicap]
+function openOrSenior(data){
+  return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
+}
