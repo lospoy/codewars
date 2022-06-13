@@ -459,3 +459,24 @@ function high(s){
   let as = s.split(' ').map(s=>[...s].reduce((a,b)=>a+b.charCodeAt(0)-96,0));
   return s.split(' ')[as.indexOf(Math.max(...as))];
 }
+
+// ***********************************************************
+// 6-kyu
+// Bouncing Balls
+// 2022-06-13
+const bouncingBall = (h,  bounce,  window) => {
+  return h > 0 && bounce > 0 && bounce < 1 && window < h
+  ? getNumOfBounces(h,  bounce,  window)
+  : -1
+}
+
+const getNumOfBounces = (h,  bounce,  window) => {
+  let numOfBounces = 1
+  let height = h * bounce
+
+  while (height > window) {
+    height *= bounce
+    numOfBounces += 2
+  }
+  return numOfBounces
+}
