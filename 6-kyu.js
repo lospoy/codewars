@@ -480,3 +480,14 @@ const getNumOfBounces = (h,  bounce,  window) => {
   }
   return numOfBounces
 }
+
+// ***********************************************************
+// 6-kyu
+// Is a number prime?
+// 2022-06-14
+const isPrime = num => {
+  for(let i = 2, n = Math.sqrt(num); i <= n; i++) {
+    if(num % i === 0) return false;
+  }
+  return num > 1;
+}
