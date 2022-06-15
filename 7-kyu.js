@@ -216,3 +216,15 @@ function openOrSenior(data){
 function openOrSenior(data){
   return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
 }
+
+// 7-kyu
+// Sum of two lowest positive integers
+// 2022-06-15
+function sumTwoSmallestNumbers(numbers) {  
+  return numbers.sort((a,b)=>a-b)[0] + numbers.sort((a,b)=>a-b)[1]
+};
+// best practice
+function sumTwoSmallestNumbers(numbers){  
+  numbers = numbers.sort((a, b) => a - b);
+  return numbers[0] + numbers[1];
+};
