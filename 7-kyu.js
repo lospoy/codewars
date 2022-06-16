@@ -228,3 +228,17 @@ function sumTwoSmallestNumbers(numbers){
   numbers = numbers.sort((a, b) => a - b);
   return numbers[0] + numbers[1];
 };
+
+// 7-kyu
+// String ends with?
+// 2022-06-16
+function solution(str, ending){
+  const a = str.split('').length - ending.split('').length
+  const b = str.split('').length
+  
+  return str.split('').slice(a, b).join('') == ending
+}
+// method to check end of string!
+function solution(str, ending){
+  return str.endsWith(ending);
+}
