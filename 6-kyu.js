@@ -491,3 +491,17 @@ const isPrime = num => {
   }
   return num > 1;
 }
+
+// ***********************************************************
+// 6-kyu
+// Count characters in your string
+// 2022-06-20
+function count (string) {  
+  return string.split('').reduce((char, val) => {
+    if(!char[val]) {
+      char[val] = 0
+    }
+    char[val]++
+    return char
+  }, {})
+}
