@@ -60,3 +60,35 @@ function humanReadable(sec) {
   time.setSeconds(sec)
   return time.toISOString().substr(11, 8);
 }
+
+
+// ***********************************************************
+// 5-kyu
+// RGB To Hex Conversion
+// 2022-06-27
+const rgb = (r, g, b) => {
+    return [r, g, b]
+            // tests for values under 0 (out of spec)
+            .map(x => {
+              return x < 0 ? 0 : x
+            })
+            // tests for values over 255 (out of spec)
+            .map(x => {
+              return x > 255 ? 'ff' : x
+            })
+            .map (x => {
+              const hex = x.toString(16)
+              return hex.length === 1 ? '0' + hex : hex
+            })
+            .join('').toUpperCase()
+  }
+// voted as best pracice
+function rgb(r, g, b){
+    return toHex(r)+toHex(g)+toHex(b);
+}
+  
+function toHex(d) {
+    if(d < 0 ) {return "00";}
+    if(d > 255 ) {return "FF";}
+    return  ("0"+(Number(d).toString(16))).slice(-2).toUpperCase()
+}
