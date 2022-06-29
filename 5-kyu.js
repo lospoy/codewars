@@ -115,3 +115,33 @@ function plus(x) {return function(y) {return y + x} }
 function minus(x) {return function(y) {return y - x} }
 function times(x) {return function(y) {return y * x} }
 function dividedBy(x) {return function(y) {return Math.floor(y / x)} }
+
+
+// ***********************************************************
+// 5-kyu
+// Calculating with Functions
+// 2022-06-29
+function rot13(message){
+    const array = message.split('')
+    const toBase36 = inputArray => inputArray.map(x => parseInt(x, 36) > -1 ? parseInt(x, 36) : x)
+    const checkForLetter = base36Letter => base36Letter >= 10 && base36Letter <= 35
+    const cipher = char => (char + 13) > 35 ? (char - 26 + 13) : char + 13
+    const base36toLetter = x => x.toString(36)
+    
+    const sol = toBase36(array)
+              .map(x => checkForLetter(x) ? cipher(x) : x)
+              .map(x => base36toLetter(x))
+    
+    if (array[0] === array[0].toUpperCase()) {
+      sol.unshift(sol[0].toUpperCase())
+      delete sol[1]
+    }
+  
+    return sol.join('')
+  }
+  // regex cipher
+  function rot13(message) {
+    var a = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
+    return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
+  }
