@@ -163,3 +163,33 @@ function rot13(message){
   const cakes = (needs, has) => Math.min(
     ...Object.keys(needs).map(key => Math.floor(has[key] / needs[key] || 0))
   )
+
+
+
+
+
+
+
+
+
+// ***********************************************************
+// 5-kyu
+// Extract the domain name from a URL
+// 2022-07-04
+// the following code goes in the right direction but is a lil dumb
+  const domainName = url => {
+    let arrayUrl = url.replace('http://', '').replace('https://', '').replace('www.', '').split('')
+    
+    while(arrayUrl.lastIndexOf('.') !== -1) {
+      arrayUrl.splice(arrayUrl.lastIndexOf('.'), arrayUrl.length)
+    }
+    
+    return arrayUrl.join('')
+  }
+// way simpler solution
+function domainName(url){
+    url = url.replace("https://", '');
+    url = url.replace("http://", '');
+    url = url.replace("www.", '');
+    return url.split('.')[0];
+  };
