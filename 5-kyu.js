@@ -145,3 +145,21 @@ function rot13(message){
     var b = "nopqrstuvwxyzabcdefghijklmNOPQRSTUVWXYZABCDEFGHIJKLM"
     return message.replace(/[a-z]/gi, c => b[a.indexOf(c)])
   }
+
+
+// ***********************************************************
+// 5-kyu
+// Pete, the baker
+// 2022-07-03
+// Write a function cakes()
+// which takes the recipe (object) and the available ingredients (also an object)
+// and returns the maximum number of cakes Pete can bake (integer)
+  function cakes(recipe, available) {
+    return Object.keys(recipe).reduce((amount, ingredient) => {
+      return Math.min(Math.floor(available[ingredient] / recipe[ingredient] || 0), amount)
+    }, Infinity) 
+  }
+  // even simpler
+  const cakes = (needs, has) => Math.min(
+    ...Object.keys(needs).map(key => Math.floor(has[key] / needs[key] || 0))
+  )
