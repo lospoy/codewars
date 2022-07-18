@@ -220,13 +220,28 @@ function domainName(url){
   }
 
 
+// ***********************************************************
+// 5-kyu
+// The Hashtag Generator
+// 2022-07-18
+function generateHashtag(str) {
+  if (str.trim() === '') return false
 
-  function generateHashtag (str) {
-    return str.trim() === ''
-                ? false
-                : '#' + str
-                  .split(' ')
-                  .map(x => x.replace(' ', ''))
-                  .slice(1, str.length, 0)
-                  .map(a => str[0].toUpperCase() + a.substring(1)).join('')
+  const stringWithCamelCase = str
+    .split(' ')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join('');
+
+  const stringWithHashtag = `#${stringWithCamelCase.trim()}`;
+
+  return stringWithHashtag.length > 140 ? false : stringWithHashtag;
+}
+// simpler
+function generateHashtag (str) {
+    return str.length > 140 || str === '' ? false :
+      '#' + str.split(' ').map(capitalize).join('');
+  }
+  
+  function capitalize(str) {
+    return str.charAt(0).toUpperCase() + str.slice(1);
   }
