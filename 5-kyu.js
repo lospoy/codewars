@@ -176,7 +176,7 @@ function rot13(message){
 // 5-kyu
 // Extract the domain name from a URL
 // 2022-07-04
-// the following code goes in the right direction but is a lil dumb
+// the following code goes in the right direction but is overcomplicated
   const domainName = url => {
     let arrayUrl = url.replace('http://', '').replace('https://', '').replace('www.', '').split('')
     
@@ -193,3 +193,28 @@ function domainName(url){
     url = url.replace("www.", '');
     return url.split('.')[0];
   };
+
+
+// ***********************************************************
+// 5-kyu
+// Valid Parentheses
+// 2022-07-17
+  function validParentheses(parens){
+    const hashMap = { '(': ')', '[': ']', '{': '}' }
+    const stack = []
+  
+    for (let ch of parens) {
+      if (hashMap[ch]) {
+        // ch is an opening parenthesis
+        stack.push(hashMap[ch])
+      } else if (stack.length > 0 && stack[stack.length - 1] === ch) {
+        // ch is a closing parenthesis & matches top of stack
+        stack.pop()
+      } else {
+        // ch is a closing parenthesis & does NOT match top of stack
+        return false
+      }
+    }
+    
+    return stack.length === 0
+  }
