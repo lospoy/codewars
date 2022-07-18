@@ -245,12 +245,22 @@ function toCamelCase(str){
   // solving without regular expressions:
 
   // checks type of separator and splits accordingly, then assigns the first word, unchanged, to the variable
-  let firstWord =  str.includes('-') ? str.split('-')[0] : str.split('_')[0]
+  let firstWord =  str.includes('-')
+                            ? str.split('-')[0]
+                            : str.split('_')[0]
   // checks type of separator and splits accordingly, then changes the rest of the words to camelCase, joins then, and assigns them to the variable
-  let otherWords = str.includes('-') ? str.split('-').slice(1, str.length, 0).map(a => a[0].toUpperCase() + a.substring(1)).join('') : str.split('_').slice(1, str.length, 0).map(a => a[0].toUpperCase() + a.substring(1)).join('')
+  let otherWords = str.includes('-')
+                            ? str.split('-').slice(1, str.length, 0).map(a => a[0].toUpperCase() + a.substring(1)).join('')
+                            : str.split('_').slice(1, str.length, 0).map(a => a[0].toUpperCase() + a.substring(1)).join('')
   
   return firstWord + otherWords
 }
+// simpler toCamelCase method
+const stringToCamelCase = str =>
+        str
+            .split(' ')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join('');
 
 // ***********************************************************
 // 6-kyu
