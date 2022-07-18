@@ -218,3 +218,15 @@ function domainName(url){
     
     return stack.length === 0
   }
+
+
+
+  function generateHashtag (str) {
+    return str.trim() === ''
+                ? false
+                : '#' + str
+                  .split(' ')
+                  .map(x => x.replace(' ', ''))
+                  .slice(1, str.length, 0)
+                  .map(a => str[0].toUpperCase() + a.substring(1)).join('')
+  }
