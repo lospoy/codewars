@@ -254,7 +254,11 @@ function generateHashtag (str) {
   function firstNonRepeatingLetter(s) {
     let array = [...s.toLowerCase()]
     
+    // find first character which index and lastindex are equal
+    // if not found returns "undefined" (falsy)
     let result = array.find((char) => array.indexOf(char) === array.lastIndexOf(char));
     
+    // if true, return character
+    // if false, return ''
     return result ? s[array.indexOf(result)] : ""
   }
