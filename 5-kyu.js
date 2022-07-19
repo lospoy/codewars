@@ -245,3 +245,16 @@ function generateHashtag (str) {
   function capitalize(str) {
     return str.charAt(0).toUpperCase() + str.slice(1);
   }
+
+
+// ***********************************************************
+// 5-kyu
+// First non-repeating character
+// 2022-07-19
+  function firstNonRepeatingLetter(s) {
+    let array = [...s.toLowerCase()]
+    
+    let result = array.find((char) => array.indexOf(char) === array.lastIndexOf(char));
+    
+    return result ? s[array.indexOf(result)] : ""
+  }
