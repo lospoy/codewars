@@ -174,3 +174,23 @@ function countSheeps(arrayOfSheep) {
   }
   return sum
 }
+
+
+// ***********************************************************
+// 8-kyu
+// Sum without highest and lowest number
+// 2022-07-22
+// Firefox 102.0.1 (64-bit) and Node v14.x interpret sort() differently
+// Firefox's interpretation of  sort((a, b) => a > b) doesn't match Node's
+// Node requires sort((a, b) => b - a)
+// Took a lot of debugging and a kind soul in the CodeWars Discord to figure this out
+function sumArray(array) {
+    if(array == null || array.length < 3) {
+      return 0
+    } else {
+       return array
+              .sort((a, b) => b - a)
+              .slice(1, -1)
+              .reduce((a, b) => a + b)
+    }
+  } 
