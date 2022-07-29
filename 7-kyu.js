@@ -1,3 +1,4 @@
+// ***********************************************************
 // 7-kyu
 //2022-04-07
 function getCount(str) {
@@ -11,6 +12,7 @@ function getCount(str) {
   return vowelsCount;
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-07
 function disemvowel(str) {
@@ -18,12 +20,14 @@ function disemvowel(str) {
 }
 //'i' means case-sensitive regex replacement so -> /[aeiou]/gi
 
+// ***********************************************************
 // 7-kyu
 //2022-04-08
 function squareDigits(num){
   return Number(num.toString().split('').map(Number).map((x) => x * x).join(""));
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-09
 function highAndLow(numbers){
@@ -33,12 +37,14 @@ function highAndLow(numbers){
   return `${max} ${min}`
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-10
 function isSquare(n) {
   return Math.sqrt(n) % 1 === 0;
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-11
 function getMiddle(s) {
@@ -54,12 +60,14 @@ function getMiddle(s) {
   return sol
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-12
 function descendingOrder(n){
   return Number(n.toString().split('').map(Number).sort((a, b) => b - a).join(''));
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-13
 function filter_list(l) {
@@ -71,6 +79,7 @@ function filter_list(l) {
   return filteredList
 }
 
+// ***********************************************************
 // 7-kyu
 //2022-04-14
 function accum(s) {
@@ -80,6 +89,7 @@ function accum(s) {
     .join('-');
 }
 
+// ***********************************************************
 // 7-kyu
 // 2022-04-15
 function findShort(s){
@@ -87,13 +97,16 @@ function findShort(s){
   return arr[0]
 }
 
+// ***********************************************************
+// 7-kyu
 // 2022-04-15
 String.prototype.toJadenCase = function () {
   return this.split(" ").map(x => x[0].toUpperCase() + x.slice(1)).join(" ");
 };
 
+// ***********************************************************
 // 7-kyu
-//2022-04-26
+// 2022-04-26
 function XO(str) {
   let xCounter = null
   let oCounter = null
@@ -107,15 +120,16 @@ function XO(str) {
   }
   return sol
 }
-//2022-04-26 regex to the rescue <== DO NOT USE FOR NOW, AVOID REGEX
+// 2022-04-26 regex to the rescue <== DO NOT USE FOR NOW, AVOID REGEX
 function XO(str) {
   let x = str.match(/x/gi);
   let o = str.match(/o/gi);
   return (x && x.length) === (o && o.length);
 }
 
+// ***********************************************************
 // 7-kyu
-//2022-05-02
+// 2022-05-02
 function maskify(cc) {
   let sol = ''
   let arrChar = cc.split('')
@@ -129,8 +143,9 @@ function maskify(cc) {
     return sol + lastFourChar.join('')
 }
 
+// ***********************************************************
 // 7-kyu
-//2022-05-04
+// 2022-05-04
 function DNAStrand(dna){
   let str = "";
   for(var i = 0 ; i < dna.length ; i++){
@@ -147,8 +162,9 @@ function DNAStrand(dna){
   return str
 }
 
+// ***********************************************************
 // 7-kyu
-//2022-05-05
+// 2022-05-05
 function isIsogram(str){
   if (typeof str === undefined){
     return true
@@ -170,6 +186,7 @@ function isIsogram(str){
   return passing
 }
 
+// ***********************************************************
 // 7-kyu
 // Growth of a Population
 // 2022-05-12
@@ -181,6 +198,7 @@ function nbYear(p0, percent, aug, p) {
   return years
 }
 
+// ***********************************************************
 // 7-kyu
 // Friend or Foe?
 // 2022-05-14
@@ -188,6 +206,7 @@ function friend(friends){
   return friends.filter(x => x.length == 4);
 }
 
+// ***********************************************************
 // 7-kyu
 // Two to One
 // 2022-05-16
@@ -204,7 +223,7 @@ function longest(s1, s2) {
 // best practice
 const longest = (s1, s2) => [...new Set(s1+s2)].sort().join('')
 
-
+// ***********************************************************
 // 7-kyu
 // Categorize New Member
 // 2022-06-11
@@ -217,6 +236,7 @@ function openOrSenior(data){
   return data.map(([age, handicap]) => (age > 54 && handicap > 7) ? 'Senior' : 'Open');
 }
 
+// ***********************************************************
 // 7-kyu
 // Sum of two lowest positive integers
 // 2022-06-15
@@ -229,6 +249,7 @@ function sumTwoSmallestNumbers(numbers){
   return numbers[0] + numbers[1];
 };
 
+// ***********************************************************
 // 7-kyu
 // String ends with?
 // 2022-06-16
@@ -241,4 +262,19 @@ function solution(str, ending){
 // method to check end of string!
 function solution(str, ending){
   return str.endsWith(ending);
+}
+
+// ***********************************************************
+// 7-kyu
+// Tribonacci Sequence
+// 2022-07-29
+function tribonacci(signature,n){
+    let sol = signature
+
+    for (i = 0; i <= n-4; i++) {
+        let nextInArray = sol[i] + sol[i+1] + sol[i+2]
+        sol.push(nextInArray)
+    }
+
+    return sol.slice(0, n)
 }
