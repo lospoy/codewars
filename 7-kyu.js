@@ -278,3 +278,13 @@ function tribonacci(signature,n){
 
     return sol.slice(0, n)
 }
+
+// ***********************************************************
+// 7-kyu
+// Is It Negative Zero (-0)?
+// 2022-08-03
+function isNegativeZero(n) {
+  return n === 0 && (1 / n < 0);
+}
+// ES6
+const isNegativeZero = n => Object.is(n, -0)
