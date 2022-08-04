@@ -303,3 +303,21 @@ function generateHashtag (str) {
   
     return scoreForHistogram(counts)
   }
+
+
+// ***********************************************************
+// 5-kyu
+// Number of trailing zeros of N!
+// 2022-08-01
+// Using an "infinite" n>0 while loop, but reducing n to 0 in each loop
+// You don't know what you don't know 
+function zeros (n) {
+  let z = 0;
+
+  while(n>0){
+    n = Math.floor(n/5);
+    z += n;
+  }
+  
+  return z;
+}
