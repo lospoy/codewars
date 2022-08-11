@@ -515,3 +515,22 @@ function count (string) {
     return char
   }, {})
 }
+
+// ***********************************************************
+// 6-kyu
+// Delete occurrences of an element if it occurs more than n times
+// 2022-08-11
+const deleteNth = (arr, n) => {
+  // object stores occurences of values
+  const occ = {}
+
+  // returns a filtered array
+  return arr.filter(val => {
+    !occ[val]
+      ? occ[val] = 1
+      : occ[val]++;
+
+    // returns boolean on whether to include currently looped value
+    return occ[val] <= n;
+  })
+}
