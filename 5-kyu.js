@@ -321,3 +321,65 @@ function zeros (n) {
   
   return z;
 }
+
+
+
+// 5-kyu
+// PaginationHelper
+// 2022-08-12
+// TODO: complete this object/class
+
+// The constructor takes in an array of items and a integer indicating how many
+// items fit within a single page
+function PaginationHelper(collection, itemsPerPage){
+  
+}
+
+// returns the number of items within the entire collection
+PaginationHelper.prototype.itemCount = function() {
+  // returns collection length
+  return Paginationhelper.collection.length()
+}
+
+// returns the number of pages
+PaginationHelper.prototype.pageCount = function() {
+  // itemCount() divided by itemsPerPage input variable
+}
+
+// returns the number of items on the current page. page_index is zero based.
+// this method should return -1 for pageIndex values that are out of range
+PaginationHelper.prototype.pageItemCount = function(pageIndex) {
+  // object with pageNumber property
+  pageObject_1 {
+    pageIndex: 0
+    itemsInPage: [1, 2, 3]
+  }
+
+  collectionObject {
+    itemsPerPage: 4 // input
+    collection: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // input
+    pageCount: pageCount() // 4
+    pages {
+    pageIndex   itemsInPage
+            0: [1, 2, 3]
+            1: [4, 5, 6]
+            2: [7, 8, 9]
+            3: [10]
+    }
+  }
+  
+  // desired outcome
+  // 10 items
+  // 4 pages
+  // Page 0     1, 2, 3    returns 3
+  // Page 1     4, 5, 6    returns 3
+  // Page 2     7, 8, 9    returns 3
+  // Page 3     10         returns 1
+  // Page 4                returns -1
+}
+
+// determines what page an item is on. Zero based indexes
+// this method should return -1 for itemIndex values that are out of range
+PaginationHelper.prototype.pageIndex = function(itemIndex) {
+  
+}
