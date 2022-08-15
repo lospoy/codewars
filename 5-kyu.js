@@ -332,41 +332,70 @@ function zeros (n) {
 // The constructor takes in an array of items and a integer indicating how many
 // items fit within a single page
 function PaginationHelper(collection, itemsPerPage){
-  
+  this.itemsPerPage = itemsPerPage
+  this.collection = collection
+  this.itemCount = itemCount()
+  this.pageCount = pageCount()
 }
 
 // returns the number of items within the entire collection
 PaginationHelper.prototype.itemCount = function() {
-  // returns collection length
-  return Paginationhelper.collection.length()
+  return this.collection.length
 }
 
 // returns the number of pages
 PaginationHelper.prototype.pageCount = function() {
   // itemCount() divided by itemsPerPage input variable
+  return Math.ceil(this.itemCount()/this.itemsPerPage)
 }
 
 // returns the number of items on the current page. page_index is zero based.
 // this method should return -1 for pageIndex values that are out of range
 PaginationHelper.prototype.pageItemCount = function(pageIndex) {
-  // object with pageNumber property
-  pageObject_1 {
-    pageIndex: 0
-    itemsInPage: [1, 2, 3]
+
+  const collectionObject = {
+    itemsPerPage: 4,
+    collection: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+    itemCount: 10,
+    pageCount: 4,
+    pages: [
+      { pageIndex: 0, itemsInPage: [1, 2, 3] },
+      { pageIndex: 1, itemsInPage: [4, 5, 6] },
+      { pageIndex: 2, itemsInPage: [7, 8, 9] },
+      { pageIndex: 3, itemsInPage: [10] },
+    ]
   }
 
-  collectionObject {
-    itemsPerPage: 4 // input
-    collection: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] // input
-    pageCount: pageCount() // 4
-    pages {
-    pageIndex   itemsInPage
-            0: [1, 2, 3]
-            1: [4, 5, 6]
-            2: [7, 8, 9]
-            3: [10]
+  collectionObject.pages[0].itemsInPage.length // would get the desired outcome in "pageItemCount"
+
+
+  // this functions aims to create the 'pages' array seen in the object 'collectionObject' above
+  function distributeCollection(collection, itemsPerPage, pageCount) {
+    const pages = []
+
+    const createEmptyPages = pageCount => {
+            for(i = 0; i <= pageCount; i++) {
+                pages[i] = { pageIndex: i, itemsInPage: [] }
+                pages[i].itemsToPage
+        }
     }
-  }
+
+    const itemsToPage = _ => {
+        const cache = collection
+        for(i = 0; i <= cache.length; i++) {
+            if(pages[i].itemsInPage.length <= itemsPerPage) {
+                itemsInPage.push(cache[i])
+                cache = cache.delete(cache[i]) 
+            }
+        }
+    }
+
+    createEmptyPages()
+    itemsToPage()
+    return pages
+}
+
+  
   
   // desired outcome
   // 10 items
