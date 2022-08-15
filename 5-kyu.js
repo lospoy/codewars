@@ -332,10 +332,10 @@ function zeros (n) {
 // The constructor takes in an array of items and a integer indicating how many
 // items fit within a single page
 function PaginationHelper(collection, itemsPerPage){
-  this.itemsPerPage = itemsPerPage
+  this.pages = [];
   this.collection = collection
-  this.itemCount = itemCount()
-  this.pageCount = pageCount()
+  this.itemsPerPage = itemsPerPage
+  this.collectionCache = JSON.parse(JSON.stringify(this.collection))
 }
 
 // returns the number of items within the entire collection
@@ -345,75 +345,45 @@ PaginationHelper.prototype.itemCount = function() {
 
 // returns the number of pages
 PaginationHelper.prototype.pageCount = function() {
-  // itemCount() divided by itemsPerPage input variable
   return Math.ceil(this.itemCount()/this.itemsPerPage)
 }
 
 // returns the number of items on the current page. page_index is zero based.
 // this method should return -1 for pageIndex values that are out of range
 PaginationHelper.prototype.pageItemCount = function(pageIndex) {
-
-  const collectionObject = {
-    itemsPerPage: 4,
-    collection: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
-    itemCount: 10,
-    pageCount: 4,
-    pages: [
-      { pageIndex: 0, itemsInPage: [1, 2, 3] },
-      { pageIndex: 1, itemsInPage: [4, 5, 6] },
-      { pageIndex: 2, itemsInPage: [7, 8, 9] },
-      { pageIndex: 3, itemsInPage: [10] },
-    ]
+  function createPages() {
+		const numberOfPages = this.pageCount()
+		for(let i = 0; i < numberOfPages; i++) {
+    	this.pages[i] = { pageIndex: i, itemsInPage: this.placeItemsOnPage() }
+    }
+		return this.pages
   }
 
-  collectionObject.pages[0].itemsInPage.length // would get the desired outcome in "pageItemCount"
-
-
-  // this functions aims to create the 'pages' array seen in the object 'collectionObject' above
-  function distributeCollection(collection, itemsPerPage, pageCount) {
-    const pages = []
-
-    // with pageCount 4 output should be:
-    // pages: [
-    //   { pageIndex: 0, itemsInPage: [] },
-    //   { pageIndex: 1, itemsInPage: [] },
-    //   { pageIndex: 2, itemsInPage: [] },
-    //   { pageIndex: 3, itemsInPage: [] },
-    // ]
-    const createEmptyPages = pageCount => {
-            for(i = 0; i <= pageCount; i++) {
-                pages[i] = { pageIndex: i, itemsInPage: [] }
-                pages[i].itemsToPage
-        }
+  function placeItemsOnPage() {
+		const itemsInPage = []
+  	const cache = this.collectionCache
+    const items = this.itemCount()
+		console.log(`collectionCache ${cache}`)
+    for(let i = 0; i < items; i++) {
+    	if (
+        itemsInPage.length < this.itemsPerPage
+        && cache[0] !== undefined 
+      )
+      {
+      	itemsInPage.push(cache[0])
+				cache.splice(0, 1)
+      }
     }
+		return itemsInPage
+  }
 
-    // this function should distribute the items in the pages, according to itemsPerPage
-    // itemsPerPage determines maximum length of the array 'itemsInPage'
-    const itemsToPage = _ => {
-        const cache = collection
-        for(i = 0; i <= cache.length; i++) {
-            if(pages[i].itemsInPage.length <= itemsPerPage) {
-                itemsInPage.push(cache[i])
-                cache = cache.delete(cache[i]) 
-            }
-        }
-    }
+  pageItemCount(pageIndex) {
+		let thisPage = this.pages[pageIndex]
+		return thisPage !== undefined
+		? thisPage.itemsInPage.length
+    : -1
+	}
 
-    createEmptyPages()
-    itemsToPage()
-    return pages
-}
-
-  
-  
-  // desired outcome
-  // 10 items
-  // 4 pages
-  // Page 0     1, 2, 3    returns 3
-  // Page 1     4, 5, 6    returns 3
-  // Page 2     7, 8, 9    returns 3
-  // Page 3     10         returns 1
-  // Page 4                returns -1
 }
 
 // determines what page an item is on. Zero based indexes
