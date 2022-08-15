@@ -373,6 +373,13 @@ PaginationHelper.prototype.pageItemCount = function(pageIndex) {
   function distributeCollection(collection, itemsPerPage, pageCount) {
     const pages = []
 
+    // with pageCount 4 output should be:
+    // pages: [
+    //   { pageIndex: 0, itemsInPage: [] },
+    //   { pageIndex: 1, itemsInPage: [] },
+    //   { pageIndex: 2, itemsInPage: [] },
+    //   { pageIndex: 3, itemsInPage: [] },
+    // ]
     const createEmptyPages = pageCount => {
             for(i = 0; i <= pageCount; i++) {
                 pages[i] = { pageIndex: i, itemsInPage: [] }
@@ -380,6 +387,8 @@ PaginationHelper.prototype.pageItemCount = function(pageIndex) {
         }
     }
 
+    // this function should distribute the items in the pages, according to itemsPerPage
+    // itemsPerPage determines maximum length of the array 'itemsInPage'
     const itemsToPage = _ => {
         const cache = collection
         for(i = 0; i <= cache.length; i++) {
