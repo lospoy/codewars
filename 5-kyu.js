@@ -327,67 +327,92 @@ function zeros (n) {
 // 5-kyu
 // PaginationHelper
 // 2022-08-12
+// OOP solution
+
 // TODO: complete this object/class
 
 // The constructor takes in an array of items and a integer indicating how many
 // items fit within a single page
-function PaginationHelper(collection, itemsPerPage){
-  this.pages = [];
-  this.collection = collection
-  this.itemsPerPage = itemsPerPage
-  this.collectionCache = JSON.parse(JSON.stringify(this.collection))
-}
-
-// returns the number of items within the entire collection
-PaginationHelper.prototype.itemCount = function() {
-  return this.collection.length
-}
-
-// returns the number of pages
-PaginationHelper.prototype.pageCount = function() {
-  return Math.ceil(this.itemCount()/this.itemsPerPage)
-}
-
-// returns the number of items on the current page. page_index is zero based.
-// this method should return -1 for pageIndex values that are out of range
-PaginationHelper.prototype.pageItemCount = function(pageIndex) {
-  function createPages() {
-		const numberOfPages = this.pageCount()
-		for(let i = 0; i < numberOfPages; i++) {
-    	this.pages[i] = { pageIndex: i, itemsInPage: this.placeItemsOnPage() }
+class PaginationHelper {
+  constructor(collection, itemsPerPage) {
+    this.pages = [];
+    this.collection = collection
+    this.itemsPerPage = itemsPerPage
+    // deep copy of the collection so it is not modified
+    this.collectionCache = JSON.parse(JSON.stringify(this.collection))
+    
+    // IIFE initializes the pages
+    this.createPages = (() => {
+    const numberOfPages = this.pageCount()
+    for(let i = 0; i < numberOfPages; i++) {
+      // creates the object structure
+      //   pages = [
+      //     { pageIndex: number, itemsInPage: number }
+      //      ...
+      //   ]
+      this.pages[i] = { pageIndex: i, itemsInPage: this.placeItemsOnPage() }
     }
-		return this.pages
+    return this.pages
+  })()
   }
 
-  function placeItemsOnPage() {
-		const itemsInPage = []
-  	const cache = this.collectionCache
+  itemCount() {
+    return this.collection.length
+  }
+
+  pageCount() {
+    return Math.ceil(this.itemCount()/this.itemsPerPage) // 2
+  }
+
+
+  placeItemsOnPage() {
+    const itemsInPage = []
+    const cache = this.collectionCache
     const items = this.itemCount()
-		console.log(`collectionCache ${cache}`)
     for(let i = 0; i < items; i++) {
-    	if (
+      if (
         itemsInPage.length < this.itemsPerPage
         && cache[0] !== undefined 
       )
       {
-      	itemsInPage.push(cache[0])
-				cache.splice(0, 1)
+        // pushes the first item in the cache
+        // and updates the cache by deleting the item it just pushed
+        itemsInPage.push(cache[0])
+        cache.splice(0, 1)
       }
     }
-		return itemsInPage
+    return itemsInPage
   }
 
   pageItemCount(pageIndex) {
-		let thisPage = this.pages[pageIndex]
-		return thisPage !== undefined
-		? thisPage.itemsInPage.length
+    let thisPage = this.pages[pageIndex]
+
+    return thisPage !== undefined
+    ? thisPage.itemsInPage.length
     : -1
-	}
+  }
 
-}
-
-// determines what page an item is on. Zero based indexes
-// this method should return -1 for itemIndex values that are out of range
-PaginationHelper.prototype.pageIndex = function(itemIndex) {
-  
+  // determines what page an item is on. Zero based indexes
+  // this method should return -1 for itemIndex values that are out of range
+  pageIndex(itemIndex) {
+    const items = this.collection
+    const itemToFind = items[itemIndex]
+    let foundPage = null
+    
+    if (items.length <= itemIndex || itemIndex < 0) {
+        return -1
+     } else {
+       // loops through 'pages' object
+        this.pages.forEach(page => {
+          // looks for the item in pages that is equal to the item in this.collection
+          // if not found in a page, .find() will return 'undefined'
+          // if found, .find() will return the item
+          // our function returns the pageIndex of the page where item was found
+          page.itemsInPage.find(item => item === itemToFind) !== undefined
+          ? foundPage = page.pageIndex
+          : false
+        })
+      }
+    return foundPage
+   }
 }
