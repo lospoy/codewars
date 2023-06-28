@@ -206,3 +206,24 @@ function sumMul(n, m) {
 	}
 	return sum
 }
+
+// ***********************************************************
+// 8-kyu
+// Convert a Boolean to a String
+// 2023-06-27
+function booleanToString(b) {
+	return b ? 'true' : 'false'
+}
+
+// other solutions
+function booleanToString(b) {
+	return b.toString()
+}
+
+function booleanToString(b) {
+	return `${b}`
+}
+
+function booleanToString(b) {
+	return b + ''
+}
