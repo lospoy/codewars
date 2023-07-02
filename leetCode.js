@@ -60,3 +60,18 @@ var fizzBuzz = function (n) {
 
 	return solutionArr
 }
+
+// 876. Middle of the Linked List
+// 2023-07-01
+// Runtime Beats 64.51%
+// Memory Beats 6.92%
+var middleNode = function (head) {
+	let twice = head
+	let once = head
+	while (twice && twice.next) {
+		twice = twice.next.next
+		once = once.next
+	}
+
+	return once
+}
