@@ -75,3 +75,15 @@ var middleNode = function (head) {
 
 	return once
 }
+
+// 383. Ransom Note
+// 2023-07-02
+// Runtime Beats 65.48%
+// Memory Beats 63.53%
+var canConstruct = function (ransomNote, magazine) {
+	for (const char of magazine) {
+		ransomNote = ransomNote.replace(char, '')
+	}
+
+	return !ransomNote ? true : false
+}
