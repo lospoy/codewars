@@ -87,3 +87,18 @@ var canConstruct = function (ransomNote, magazine) {
 
 	return !ransomNote ? true : false
 }
+
+// 35. Search Insert Position
+// 2023-07-03
+// Runtime Beats 88.9%
+// Memory Beats 12.27%
+var searchInsert = function (nums, target) {
+	if (nums.indexOf(target) !== -1) {
+		return nums.indexOf(target)
+	}
+	if (nums.indexOf(target) == -1) {
+		nums.push(target)
+		nums.sort((a, b) => a - b)
+		return nums.indexOf(target)
+	}
+}
