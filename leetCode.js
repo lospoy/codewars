@@ -102,3 +102,19 @@ var searchInsert = function (nums, target) {
 		return nums.indexOf(target)
 	}
 }
+
+// 35. Search Insert Position
+// 2023-07-05
+var reformat = function (s) {
+	let a = [],
+		b = []
+	for (x of s) {
+		isNaN(x) ? a.push(x) : b.push(x)
+	}
+	if (a.length < b.length) {
+		;[a, b] = [b, a]
+	}
+	return a.length - b.length <= 1
+		? a.map((x, i) => x + (b[i] ? b[i] : '')).join('')
+		: ''
+}
