@@ -103,7 +103,7 @@ var searchInsert = function (nums, target) {
 	}
 }
 
-// 35. Search Insert Position
+// 1417. Reformat The String
 // 2023-07-05
 var reformat = function (s) {
 	let a = [],
@@ -117,4 +117,13 @@ var reformat = function (s) {
 	return a.length - b.length <= 1
 		? a.map((x, i) => x + (b[i] ? b[i] : '')).join('')
 		: ''
+}
+
+// 88. Merge Sorted Array
+// 2023-07-05
+var merge = function (nums1, m, nums2, n) {
+	for (let i = m, j = 0; j < n; i++, j++) {
+		nums1[i] = nums2[j]
+	}
+	nums1.sort((a, b) => a - b)
 }
