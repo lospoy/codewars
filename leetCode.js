@@ -120,10 +120,23 @@ var reformat = function (s) {
 }
 
 // 88. Merge Sorted Array
-// 2023-07-05
+// 2023-07-06
 var merge = function (nums1, m, nums2, n) {
 	for (let i = m, j = 0; j < n; i++, j++) {
 		nums1[i] = nums2[j]
 	}
 	nums1.sort((a, b) => a - b)
+}
+
+// 70. Climbing Stairs
+// 2023-07-07
+var climbStairs = function (n) {
+	let step2Before = 1
+	let step1Before = 1
+	for (let i = 2; i <= n; i++) {
+		let tmp = step1Before
+		step1Before = step2Before + step1Before
+		step2Before = tmp
+	}
+	return n > 0 ? step1Before : 0
 }
