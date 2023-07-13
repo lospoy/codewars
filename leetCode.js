@@ -186,3 +186,28 @@ var romanToInt = function (s) {
 	}
 	return value
 }
+
+// 169. Majority Element
+// 2023-07-13
+var majorityElement = function (nums) {
+	const sum = nums.reduce((obj, item) => {
+		if (!obj[item]) {
+			obj[item] = 0
+		}
+
+		obj[item]++
+		return obj
+	}, {})
+
+	let majorityKey = null
+	let majorityValue = 0
+
+	for (const key in sum) {
+		if (sum[key] > majorityValue) {
+			majorityValue = sum[key]
+			majorityKey = key
+		}
+	}
+
+	return majorityKey
+}
