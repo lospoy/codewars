@@ -223,3 +223,25 @@ var longestCommonPrefix = function (strs) {
 	}
 	return strs[0]
 }
+
+// 136. Single Number
+// 2023-07-20
+var singleNumber = function (nums) {
+	const countObj = nums.reduce((obj, item) => {
+		if (!obj[item]) {
+			obj[item] = 0
+		}
+		obj[item]++
+		return obj
+	}, {})
+
+	return parseInt(Object.entries(countObj).find(([key, value]) => value === 1))
+}
+// using XOR
+var singleNumber = function (nums) {
+	let uniqNum = 0
+	for (let i = 0; i < nums.length; i++) {
+		uniqNum = uniqNum ^ nums[i]
+	}
+	return uniqNum
+}
