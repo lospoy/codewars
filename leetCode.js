@@ -211,3 +211,15 @@ var majorityElement = function (nums) {
 
 	return majorityKey
 }
+
+// 14. Longest Common Prefix
+// 2023-07-20
+//  sorting an array of strings will sort the strings alphabetically,
+//  then we find the common substring between the first and the last values in the sorted array
+var longestCommonPrefix = function (strs) {
+	strs.sort()
+	for (let i = 0; i < strs[0].length; i++) {
+		if (strs[0][i] !== strs[strs.length - 1][i]) return strs[0].substr(0, i)
+	}
+	return strs[0]
+}
