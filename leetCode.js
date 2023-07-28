@@ -264,3 +264,24 @@ var isValid = function (s) {
 	}
 	return !stack.length
 }
+
+// 121. Best Time to Buy and Sell Stock
+// 2023-07-28
+// Two pointer solution, faster & more efficient
+var maxProfit = function (prices) {
+	let l = 0
+	let r = 1
+	let maxProfit = 0
+
+	while (r < prices.length) {
+		if (prices[l] < prices[r]) {
+			let profit = prices[r] - prices[l]
+			maxProfit = Math.max(maxProfit, profit)
+		} else {
+			l = r
+		}
+		r++
+	}
+
+	return maxProfit
+}
