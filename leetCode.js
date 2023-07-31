@@ -304,3 +304,19 @@ var twoSum = function (nums, target) {
 		}
 	}
 }
+
+// 20. Valid Parentheses
+// 2023-07-31
+// Way faster than the previous solution (?)
+var isValid = function (s) {
+	const stack = []
+
+	for (let i = 0; i < s.length; i++) {
+		if (s[i] == '{') stack.push('}')
+		else if (s[i] == '[') stack.push(']')
+		else if (s[i] == '(') stack.push(')')
+		else if (stack.pop() !== s[i]) return false
+	}
+
+	return !stack.length
+}
